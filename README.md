@@ -31,10 +31,8 @@ _gpu_library.so_ and _test_mul.py_ must be in the same folder. Alternatively you
  
 # Features demonstrated 
 
-Compiles out of the box with cmake 
-
-Numpy integration 
-
-C++ Templating for composable kernels with generic data types 
+- Compiles out of the box with cmake
+- Numpy integration
+- C++ Templating for composable kernels with generic data types
 
 Originally based on https://github.com/torstem/demo-cuda-pybind11
