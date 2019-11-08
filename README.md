@@ -12,7 +12,7 @@ Cuda
 
 Python 3.6 or greater 
 
-Cmake >= 3.12 for the new FindPython3 module
+Cmake >= 3.12 (for CUDA support and the new FindPython3 module)
 
 # To build 
 
