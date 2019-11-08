@@ -3,6 +3,7 @@
 Starting point for GPU accelerated python libraries 
 
 Adapted from original work from https://github.com/PWhiddy/pybind11-cuda
+
 Present work uses [modern CMake/Cuda](https://developer.download.nvidia.com/video/gputechconf/gtc/2019/presentation/s9444-build-systems-exploring-modern-cmake-cuda-v2.pdf) approach
 
 # Prerequisites
