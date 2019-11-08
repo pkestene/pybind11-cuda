@@ -27,6 +27,8 @@ make
 Test it with 
 ```python3 test_mul.py``` 
  
+_gpu_library.so_ and _test_mul.py_ must be in the same folder. Alternatively you can path to _gpu_library.so_ to your PYTHONPATH env variable.
+ 
 # Features demonstrated 
 
 Compiles out of the box with cmake 
