@@ -3,6 +3,12 @@
 cmake_minimum_required(VERSION 3.12)
 
 message("Using CMake version ${CMAKE_VERSION}")
+
+#
+# check if we want to apply cmake policy CMP0104, i.e.
+# raise an error if CUDA_ARCHITECTURES is empty, when using
+# nvc++ compiler
+#
 if(${CMAKE_VERSION} VERSION_LESS "3.18.0")
     message("Using cmake policy CMP0104 OLD")
     cmake_policy(SET CMP0104 OLD)
@@ -44,9 +50,12 @@ endif()
 
 # make sure to find python from conda, if a conda virtual env is activated
 set(Python3_FIND_VIRTUALENV "STANDARD")
-find_package(Python3 COMPONENTS Interpreter Development)
+find_package(Python3 REQUIRED COMPONENTS Interpreter Development)
 #find_package(PythonInterp 3.6 REQUIRED)
 #find_package(PythonLibs 3.6 REQUIRED)
+
+include(CheckPythonLibs)
+check_python_libs("numpy")
 
 # we also need extra stuff to make sure compile flags are correctly
 # passed to nvcc / host compiler
