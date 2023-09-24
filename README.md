@@ -14,24 +14,33 @@ Python 3.6 or greater
 
 Cmake >= 3.12 (for CUDA support and the new FindPython3 module)
 
-# To build
+# Build instructions
 
-```bash
-mkdir build; cd build
-# provide a default cuda hardware architecture to build for
-export CUDAFLAGS="-arch=sm_50"
-cmake ..
-make
-```
+## cmake
 
 If you use cmake version >= 3.18, you can use [variable CMAKE_CUDA_ARCHITECTURES](https://cmake.org/cmake/help/latest/variable/CMAKE_CUDA_ARCHITECTURES.html) instead of CUDAFLAGS:
 
+
 ```bash
 mkdir build; cd build
 # provide a default cuda hardware architecture to build for
-cmake -DCMAKE_CUDA_ARCHITECTURES="75" ..
+cmake -DCMAKE_CUDA_ARCHITECTURES="75" -DPython3_EXECUTABLE=`which python` ..
 make
 ```
+
+Please note that specifiying `Python3_EXECUTABLE` is not required, but recommended if you have multiple python executable on your system (e.g. one from OS, another from conda, etc...); this way you can control which python installation will be used.
+
+If you have an older version cmake, you can pass nvcc flags to cmake using env variable `CUDAFLAGS`
+
+```bash
+mkdir build; cd build
+# provide a default cuda hardware architecture to build for
+export CUDAFLAGS="-arch=sm_75"
+cmake -DPython3_EXECUTABLE=`which python` ..
+make
+```
+
+## test
 
 Test it with
 ```python3 test_mul.py```
