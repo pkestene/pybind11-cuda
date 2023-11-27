@@ -10,3 +10,5 @@ target_link_libraries(gpu_library PUBLIC
 
 # set what comes before the library name, here no "lib"
 set_target_properties(gpu_library PROPERTIES PREFIX "")
+
+configure_file(test_mul.py test_mul.py COPYONLY)

@@ -33,6 +33,7 @@ Please note that specifiying `Python3_EXECUTABLE` is not required, but recommend
 If you have an older version cmake, you can pass nvcc flags to cmake using env variable `CUDAFLAGS`
 
 ```bash
+# change CUDAFLAGS according to your target GPU architecture
 mkdir build; cd build
 # provide a default cuda hardware architecture to build for
 export CUDAFLAGS="-arch=sm_75"
@@ -43,7 +44,10 @@ make
 ## test
 
 Test it with
-```python3 test_mul.py```
+```shell
+cd src
+python3 test_mul.py
+```
 
 _gpu_library.so_ and _test_mul.py_ must be in the same folder. Alternatively you can path to _gpu_library.so_ to your PYTHONPATH env variable.
 
